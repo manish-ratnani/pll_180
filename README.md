@@ -70,10 +70,32 @@ modifications -> to include the library or model file
 
 File : [```documents/inv101.cir```](documents/inv101.cir)
 ```
+*********************
+*inverter simulation
+*********************
 
+.include osu018.lib
+
+
+M1 out in GND GND nfet l=180n w=180n
+M2 VDD in out VDD pfet l=180n w=360n
+
+
+V1 in 0 PULSE 0 1.8 10p 50p 50p 100n 200n
+V2 VDD 0 1.8
+
+.control
+tran 0.01ns 400ns
+plot v(in)+2 v(out)
+.endc
+
+.end
+```
 #### Running simulation
 
 We run the simulation by invoking the command ```ngspice inv101.cir``` where ```inv101.cir``` is the name of the spice netlist. The output looks like :
+![log screenshot](documents/inverter_spice_file_terminal_log.png)
+![inverter screenshot](documents/inverter_simulation_output_waveform.png)
 
-![Inverter screenshot](documents/inverter_simulation_output_waveform.png)
+
 ---
