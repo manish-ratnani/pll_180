@@ -1,5 +1,5 @@
 ![mas](https://user-images.githubusercontent.com/92747247/137858130-74e6f2e8-cd55-4c0a-a6aa-66a41eea142b.jpg)
-This is intense workshop to design PLL using 180nm PDK, steps > design, simulate, layout and finally tapeout  
+This is intense workshop to design PLL using 180nm PDK, steps > design, simulate, layout.  
 ---
 
 ## Table of contents
@@ -12,7 +12,6 @@ This is intense workshop to design PLL using 180nm PDK, steps > design, simulate
   - [Theory](#theory)
     - [Phase Locked Loop](#phase-locked-loop)
       - [Clock multiplier using PLL](#clock-multiplier-using-pll)
-      - [Our implementation](#our-implementation)
       - [Phase frequency detector](#phase-frequency-detector)
       - [Charge pump and RC filter](#charge-pump-and-rc-filter)
       - [Voltage Controlled Oscillator](#voltage-controlled-oscillator)
@@ -32,6 +31,15 @@ This is intense workshop to design PLL using 180nm PDK, steps > design, simulate
     - [6) Clock divider](#6-clock-divider)
     - [Pre-layout simulation of whole circuit](#pre-layout-simulation-of-whole-circuit)
 
+## Introduction
+![pll block diagram](documents/pll_block_diagram.png)
+
+Phase-detector : Based on the feedback from the frequency divider it creates two signals ,up and down which are given to the charge-pump<br />
+Charge pump : Charge-pump consists of power MOSFETS it helps in better charging of the capacitors present in the next stage which is a LPF<br />
+LPF : LPF is used for smoothning the waveform and get a dc value<br />
+MUX : Here MUX is used to select between VCO only mode or PLL<br />
+VCO : VCO is used to get the output frequency based on the input DC value<br />
+Frequency divider :Here a basic D-Filp-flop based counter is used to get frequency division
 
 ---
 
