@@ -56,7 +56,7 @@ This is intense workshop to design PLL using 180nm PDK, steps > design, simulate
 |IDDD|Digital Supply Current||||uA|EN_VCO=0, EN_CP=0, FCLKREF=0|
 
 ## Basic inverter simulation 
-# Pre-layout simulation
+### Pre-layout simulation
 
 Pre-layout simulation is done using ngspice netlists generated from esim.
 
@@ -64,7 +64,16 @@ Pre-layout simulation is done using ngspice netlists generated from esim.
 
 ### 1) Inverter (example)
 
-The netlist generated from esim looks like this : 
+The netlist generated from esim needs to be modified to run the simulation:
+modifications -> to include the library or model file
+              -> add control statements 
 
 File : [```documents/inv101.cir```](documents/inv101.cir)
 ```
+
+#### Running simulation
+
+We run the simulation by invoking the command ```ngspice inv101.cir``` where ```inv101.cir``` is the name of the spice netlist. The output looks like :
+
+![Inverter screenshot](documents/inverter_simulation_output_waveform.png)
+---
