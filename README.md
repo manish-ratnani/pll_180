@@ -7,7 +7,7 @@
 ![6](https://user-images.githubusercontent.com/92747247/137858430-86824013-4350-4ee9-9fec-3aca072ec48b.png)
 ![7](https://user-images.githubusercontent.com/92747247/137858445-2a238bba-7ddd-40f7-8515-4be9a8d90a39.png)
 
-#Design Specifications
+Design Specifications
 | Parameter| Description| Min | Type | Max | Unit | Condition |
 | :---:  | :-: | :-: | :-: | :---:  | :-: | :-: |
 |VDD|Digital supply voltage||1.8||V|T=-40 to 150C|
