@@ -1,13 +1,41 @@
 ![mas](https://user-images.githubusercontent.com/92747247/137858130-74e6f2e8-cd55-4c0a-a6aa-66a41eea142b.jpg)
-# This is intense workshop to design PLL using 180nm PDK, steps > design, simulate, layout and finally tapeout  
-![1](https://user-images.githubusercontent.com/92747247/137857760-232e285c-b013-48b7-a543-f8e31adfa97e.png)
-![2](https://user-images.githubusercontent.com/92747247/137858359-d3219052-1b42-4949-8b00-27bd65abda6b.png)
-![3](https://user-images.githubusercontent.com/92747247/137858370-07781134-03e9-44a0-a3df-c83c1574ce87.png)
-![4](https://user-images.githubusercontent.com/92747247/137858391-b1976453-9fba-4f71-bd13-f3d68f40b918.png)
-![6](https://user-images.githubusercontent.com/92747247/137858430-86824013-4350-4ee9-9fec-3aca072ec48b.png)
-![7](https://user-images.githubusercontent.com/92747247/137858445-2a238bba-7ddd-40f7-8515-4be9a8d90a39.png)
+This is intense workshop to design PLL using 180nm PDK, steps > design, simulate, layout and finally tapeout  
+---
 
-Design Specifications
+## Table of contents
+
+- [PLL_OSU180nm_VSD](#pll_osu180nm_vsd)
+  - [Table of contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Design Specifications](#design-specifications)
+  - [Tools used](#tools-used)
+  - [Theory](#theory)
+    - [Phase Locked Loop](#phase-locked-loop)
+      - [Clock multiplier using PLL](#clock-multiplier-using-pll)
+      - [Our implementation](#our-implementation)
+      - [Phase frequency detector](#phase-frequency-detector)
+      - [Charge pump and RC filter](#charge-pump-and-rc-filter)
+      - [Voltage Controlled Oscillator](#voltage-controlled-oscillator)
+      - [Frequency divider](#frequency-divider)
+- [Pre-layout simulation](#pre-layout-simulation)
+    - [1) Inverter (example)](#1-inverter-example)
+      - [Esim netlist](#esim-netlist)
+      - [Modifications](#modifications)
+      - [Running simulation](#running-simulation)
+    - [3) NAND gates](#3-nand-gates)
+      - [2 input NAND](#2-input-nand)
+      - [3 input NAND](#3-input-nand)
+      - [4 input NAND](#4-input-nand)
+    - [3) Phase detector](#3-phase-detector)
+    - [4) Phase detector with RC filter and charge pump](#4-phase-detector-with-rc-filter-and-charge-pump)
+    - [5) Voltage Controlled Oscillator](#5-voltage-controlled-oscillator)
+    - [6) Clock divider](#6-clock-divider)
+    - [Pre-layout simulation of whole circuit](#pre-layout-simulation-of-whole-circuit)
+
+
+---
+
+## Design Specifications 
 | Parameter| Description| Min | Type | Max | Unit | Condition |
 | :---:  | :-: | :-: | :-: | :---:  | :-: | :-: |
 |VDD|Digital supply voltage||1.8||V|T=-40 to 150C|
@@ -26,3 +54,17 @@ Design Specifications
 |IDDD|Digital Supply Current||||uA|VVCO=0.8V, VCO mode|
 |IDDD|Digital Supply Current||||uA|FCLKREF=10MHz, PLL mode|
 |IDDD|Digital Supply Current||||uA|EN_VCO=0, EN_CP=0, FCLKREF=0|
+
+## Basic inverter simulation 
+# Pre-layout simulation
+
+Pre-layout simulation is done using ngspice netlists generated from esim.
+
+---
+
+### 1) Inverter (example)
+
+The netlist generated from esim looks like this : 
+
+File : [```documents/inv101.cir```](documents/inv101.cir)
+```
